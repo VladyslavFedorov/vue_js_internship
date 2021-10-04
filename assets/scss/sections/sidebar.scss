@@ -1,0 +1,134 @@
+@import "../global/vartiables";
+.sidebar {
+  background: $black;
+  width: 270px;
+  color: $white;
+  @media screen and (max-width: $tablets-big) {
+    position: fixed;
+    height: 100vh;
+    transition: 0.3s;
+    z-index: -1;
+    opacity: 0;
+    visibility: hidden;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    &.active {
+      z-index: 999;
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+  .box {
+    overflow-y: scroll;
+    height: 100%;
+  }
+  .sidebar_top {
+    padding: 30px 20px 30px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .name {
+      padding: 0 13px;
+      line-height: 24px;
+      text-transform: uppercase;
+    }
+  }
+  .profile_box {
+    padding: 16px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: $grey-bg;
+    .avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+    .text {
+      padding: 0 15px;
+      .name {
+        font-size: 14px;
+        line-height: 19px;
+        padding-bottom: 2px;
+      }
+      .description {
+        font-size: 12px;
+        line-height: 17px;
+        color: $grey;
+      }
+    }
+    .more_box {
+      .more_btn {
+        width: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        cursor: pointer;
+        span {
+          width: 4px;
+          height: 4px;
+          border-radius: 50%;
+          background: $grey;
+        }
+      }
+    }
+  }
+  .tasks_info_box {
+    padding: 20px 30px;
+    display: flex;
+    align-items: center;
+    & > div {
+      padding-right: 17px;
+    }
+    .num {
+      font-size: 20px;
+      line-height: 27px;
+    }
+    .text {
+      font-size: 12px;
+      line-height: 17px;
+      opacity: 0.5;
+    }
+  }
+  .menu {
+    padding: 10px 30px;
+    .title {
+      font-size: 12px;
+      color: $sidebar-menu-title;
+      line-height: 18px;
+      margin-bottom: 18px;
+      display: block;
+      text-transform: uppercase;
+    }
+    .menu_item {
+      a {
+        font-size: 14px;
+        line-height: 22px;
+        margin-bottom: 16px;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        transition: 0.3s;
+        &.active,
+        &:hover {
+          opacity: 0.7;
+        }
+      }
+      .counter {
+        width: 20px;
+        min-width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: $yellow;
+        margin: 0 9px;
+        font-size: 13px;
+        color: $main-color;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+}

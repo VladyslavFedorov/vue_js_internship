@@ -1,0 +1,27 @@
+# See https://help.github.com/ignore-files/ for more about ignoring files.
+# phpstorm project files
+.idea
+
+# netbeans project files
+nbproject
+
+# vscode project files
+.vscode
+.history
+
+# zend studio for eclipse project files
+.buildpath
+.project
+.settings
+
+# windows thumbnail cache
+Thumbs.db
+
+# Mac DS_Store Files
+.DS_Store
+
+# dependencies
+/node_modules
+
+package.json
+package-lock.json
