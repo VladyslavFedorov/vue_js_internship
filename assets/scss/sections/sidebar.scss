@@ -20,8 +20,10 @@
     }
   }
   .box {
-    overflow-y: scroll;
-    height: 100%;
+    @media screen and (max-width: $tablets-big) {
+      overflow-y: scroll;
+      height: 100%;
+    }
   }
   .sidebar_top {
     padding: 30px 20px 30px 30px;
@@ -126,7 +128,6 @@
         font-size: 13px;
         color: $main-color;
         display: flex;
-        align-items: center;
         justify-content: center;
       }
     }

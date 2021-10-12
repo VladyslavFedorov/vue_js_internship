@@ -25,3 +25,5 @@ Thumbs.db
 
 package.json
 package-lock.json
+gulpfile.js
+style.css.map
