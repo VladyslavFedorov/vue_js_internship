@@ -237,6 +237,9 @@ header .tab_links ul li:last-child a {
   line-height: 17px;
   opacity: 0.5;
 }
+.sidebar .tasks_info_box .completed_tasks {
+  cursor: pointer;
+}
 .sidebar .menu {
   padding: 10px 30px;
 }
@@ -540,6 +543,7 @@ body {
   border-radius: 8px;
   overflow: hidden;
   width: 100px;
+  cursor: pointer;
 }
 .tab_pane .time {
   opacity: 0.7;
