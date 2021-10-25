@@ -87,7 +87,7 @@ header .header_actions ul {
 header .header_actions ul a {
   width: 30px;
   height: 30px;
-  margin: 0 5px;
+  margin: 0 3px;
   display: block;
   overflow: hidden;
   border-radius: 50%;
@@ -170,6 +170,16 @@ header .tab_links ul li:last-child a {
   padding: 0 13px;
   line-height: 24px;
   text-transform: uppercase;
+}
+.sidebar .search_box .search_btn {
+  cursor: pointer;
+}
+.sidebar .search_box .search_btn:before {
+  content: "";
+  width: 16px;
+  height: 16px;
+  display: block;
+  background: url("../img/search.svg") center/contain no-repeat no-repeat;
 }
 .sidebar .profile_box {
   padding: 16px 30px;
@@ -261,6 +271,7 @@ header .tab_links ul li:last-child a {
   color: #131313;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 * {
@@ -374,14 +385,12 @@ body {
   border-radius: 15px;
   padding: 0 15px;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   min-height: 30px;
   font-size: 14px;
+  line-height: 1;
   transition: 0.3s;
-}
-.btn img, .btn_yellow img, .btn_grey img {
-  margin: 0 5px;
 }
 .btn:hover, .btn_yellow:hover, .btn_grey:hover {
   opacity: 0.7;
@@ -395,6 +404,19 @@ body {
 .btn_yellow {
   color: #FFC200;
   background: #FFF8DD;
+}
+
+.chat {
+  padding: 8px 15px 6px;
+}
+.chat:before {
+  content: "";
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  background: url("../img/chat.svg") center/contain no-repeat no-repeat;
+  margin-right: 5px;
+  vertical-align: middle;
 }
 
 .tab_pane {

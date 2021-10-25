@@ -36,6 +36,18 @@
       text-transform: uppercase;
     }
   }
+  .search_box {
+    .search_btn {
+      cursor: pointer;
+      &:before {
+        content: '';
+        width: 16px;
+        height: 16px;
+        display: block;
+        background: url('../img/search.svg') center/contain no-repeat no-repeat;
+      }
+    }
+  }
   .profile_box {
     padding: 16px 30px;
     display: flex;
@@ -129,6 +141,7 @@
         color: $main-color;
         display: flex;
         justify-content: center;
+        align-items: center;
       }
     }
   }

@@ -95,14 +95,12 @@ body {
   border-radius: 15px;
   padding: 0 15px;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   min-height: 30px;
   font-size: 14px;
+  line-height: 1;
   transition: 0.3s;
-  img {
-    margin: 0 5px;
-  }
   &:hover {
     opacity: 0.7;
   }
@@ -116,6 +114,18 @@ body {
   @extend .btn;
   color: $yellow;
   background: $yellow-light;
+}
+.chat {
+  padding: 8px 15px 6px;
+  &:before {
+    content: '';
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    background: url('../img/chat.svg') center/contain no-repeat no-repeat;
+    margin-right: 5px;
+    vertical-align: middle;
+  }
 }
 .tab_pane {
   display: none;
