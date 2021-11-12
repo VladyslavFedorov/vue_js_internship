@@ -1,0 +1,19 @@
+@font-face {
+  font-family: "Helvetica";
+  src: url("~@/assets/fonts/Helvetica/Helvetica-Regular/Helvetica-Regular.eot");
+  src: url("~@/assets/fonts/Helvetica/Helvetica-Regular/Helvetica-Regular.eot?#iefix")format("embedded-opentype"),
+  url("~@/assets/fonts/Helvetica/Helvetica-Regular/Helvetica-Regular.woff") format("woff"),
+  url("~@/assets/fonts/Helvetica/Helvetica-Regular/Helvetica-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "Helvetica";
+  src: url("~@/assets/fonts/Helvetica/Helvetica-Bold/Helvetica-Bold.eot");
+  src: url("~@/assets/fonts/Helvetica/Helvetica-Bold/Helvetica-Bold.eot?#iefix")format("embedded-opentype"),
+  url("~@/assets/fonts/Helvetica/Helvetica-Bold/Helvetica-Bold.woff") format("woff"),
+  url("~@/assets/fonts/Helvetica/Helvetica-Bold/Helvetica-Bold.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 700;
+}

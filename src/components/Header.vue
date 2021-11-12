@@ -1,16 +1,90 @@
-@import "../global/vartiables";
+<template>
+  <header id="header">
+    <div class="header_main">
+      <div class="title_box">
+        <div class="mobile_menu_btn" v-bind:class="{ active: isActive }" v-on:click="isActive = !isActive">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="logo">
+          <img src="../assets/logo.png" alt="logo">
+        </div>
+        <div class="name">Website Redesign</div>
+        <div class="action_box">
+          <div class="more_btn">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div class="more_hidden_box">
+
+          </div>
+        </div>
+      </div>
+      <div class="header_actions">
+        <ul>
+          <li>
+            <a href="#">
+              <img src="../assets/ava.png" alt="ava">
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <img src="../assets/ava.png" alt="ava">
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <img src="../assets/ava.png" alt="ava">
+            </a>
+          </li>
+        </ul>
+        <div class="btn_box">
+          <a href="#" class="btn_grey">Share</a>
+          <a href="#" class="btn_yellow chat">Chat</a>
+        </div>
+      </div>
+    </div>
+    <div class="tab_links">
+      <ul id="nav">
+        <router-link to="/tasks">Tasks</router-link>
+        <router-link to="/kanban">Kanban</router-link>
+        <router-link to="/">Activity</router-link>
+        <router-link to="/calendar">Calendar</router-link>
+        <router-link to="/files">Files</router-link>
+      </ul>
+    </div>
+  </header>
+</template>
+
+<script lang="ts">
+export default {
+  data: function () {
+    return {
+      isActive: false
+    }
+  }
+}
+</script>
+
+<style scoped lang="scss">
+@import '../scss/base/vartiables.scss';
+
 header {
   padding: 40px 30px 0;
   background: $white;
   @media screen and (max-width: $tablets) {
     padding: 15px 15px 0;
   }
+
   .header_main {
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
     margin-bottom: 20px;
+
     .title_box {
       display: flex;
       align-items: center;
@@ -18,12 +92,14 @@ header {
         margin-bottom: 20px;
         width: 100%;
       }
+
       .logo {
         width: 40px;
         margin-right: 15px;
         background: $yellow;
         border-radius: 8px;
       }
+
       .name {
         font-size: 32px;
         line-height: 43px;
@@ -35,6 +111,7 @@ header {
         }
       }
     }
+
     .action_box {
       .more_btn {
         width: 30px;
@@ -46,6 +123,7 @@ header {
         display: flex;
         align-items: center;
         justify-content: center;
+
         span {
           width: 4px;
           height: 4px;
@@ -57,13 +135,16 @@ header {
       }
     }
   }
+
   .header_actions {
     display: flex;
     align-items: center;
+
     ul {
       display: flex;
       align-items: center;
       margin: 0 -5px;
+
       a {
         width: 30px;
         height: 30px;
@@ -72,24 +153,29 @@ header {
         overflow: hidden;
         border-radius: 50%;
         transition: 0.3s;
+
         &:hover {
           opacity: 0.7;
         }
       }
     }
+
     .btn_box {
       display: flex;
       align-items: center;
+
       a {
         margin-left: 15px;
       }
     }
   }
+
   .tab_links {
     ul {
       display: flex;
       align-items: center;
       flex-wrap: wrap;
+
       a {
         margin-right: 30px;
         display: flex;
@@ -98,18 +184,23 @@ header {
         border-bottom: 2px solid rgba(255, 194, 0, 0);
         transition: 0.3s;
         opacity: 0.7;
-        &.active, &:hover {
+
+        &.router-link-active, &:hover {
           opacity: 1;
           border-bottom: 2px solid $yellow;
         }
+
         @media screen and (max-width: $tablets) {
           margin-right: 15px;
           font-size: 14px;
         }
       }
+
       li:last-child a {
         margin-right: 0;
       }
     }
   }
 }
+
+</style>

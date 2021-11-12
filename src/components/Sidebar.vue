@@ -1,4 +1,70 @@
-@import "../global/vartiables";
+<template>
+  <div class="sidebar">
+    <div class="box">
+      <div class="sidebar_top">
+        <div class="logo_box">
+          <img src="../assets/logo.svg" alt="logo">
+        </div>
+        <div class="name">
+          PROJECTUS
+        </div>
+        <div class="search_box">
+          <div class="search_btn"></div>
+        </div>
+      </div>
+      <div class="profile_box">
+        <div class="avatar">
+          <img src="../assets/ava.png" alt="ava">
+        </div>
+        <div class="text">
+          <div class="name">Jean Gonzales</div>
+          <div class="description">Product Owner</div>
+        </div>
+        <div class="more_box">
+          <div class="more_btn">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div class="more_hidden_box">
+
+          </div>
+        </div>
+      </div>
+      <div class="tasks_info_box">
+        <div class="completed_tasks" onclick="quantity();">
+          <div class="num">372</div>
+          <div class="text">Completed Tasks</div>
+        </div>
+        <div class="open_tasks">
+          <div class="num">2</div>
+          <div class="text">Open Tasks</div>
+        </div>
+      </div>
+      <div class="menu">
+        <span class="title">Menu</span>
+        <ul>
+          <li class="menu_item"><a href="#">Home</a></li>
+          <li class="menu_item"><a href="#">My Tasks</a></li>
+          <li class="menu_item"><a href="#">Notifications <span class="counter">3</span></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script lang="ts">
+export default {
+  data: function () {
+    return {
+      isActive: false
+    }
+  }
+}
+</script>
+
+<style scoped lang="scss">
+@import '../scss/base/vartiables.scss';
 .sidebar {
   background: $black;
   width: 270px;
@@ -44,7 +110,7 @@
         width: 16px;
         height: 16px;
         display: block;
-        background: url('../img/search.svg') center/contain no-repeat no-repeat;
+        background: url('../assets/search.svg') center/contain no-repeat no-repeat;
       }
     }
   }
@@ -149,3 +215,4 @@
     }
   }
 }
+</style>
