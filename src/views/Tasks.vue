@@ -1,15 +1,11 @@
-<template>
-  <Sidebar/>
-  <div class="main">
-    <Header/>
-    <div class="content">
-      <div class="tab_content">
-        <div class="tab_pane active">
-          <TasksList/>
-        </div>
-      </div>
-    </div>
-  </div>
+<template lang="pug">
+Sidebar
+.main
+ Header
+ .content
+  .tab_content
+   .tab_pane.active
+    TasksList
 </template>
 
 <script lang="ts">

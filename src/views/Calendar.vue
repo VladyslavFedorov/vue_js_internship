@@ -1,9 +1,11 @@
-<template>
-  <Sidebar/>
-  <div class="main">
-    <Header/>
-    <h1>Calendar</h1>
-  </div>
+<template lang="pug">
+Sidebar
+.main
+ Header
+ .content
+  .tab_content
+   .tab_pane.active
+    h1 Calendar
 </template>
 
 <script lang="ts">

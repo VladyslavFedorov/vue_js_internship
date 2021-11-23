@@ -1,66 +1,67 @@
-<template>
-  <div class="sidebar">
-    <div class="box">
-      <div class="sidebar_top">
-        <div class="logo_box">
-          <img src="../assets/logo.svg" alt="logo">
-        </div>
-        <div class="name">
-          PROJECTUS
-        </div>
-        <div class="search_box">
-          <div class="search_btn"></div>
-        </div>
-      </div>
-      <div class="profile_box">
-        <div class="avatar">
-          <img src="../assets/ava.png" alt="ava">
-        </div>
-        <div class="text">
-          <div class="name">Jean Gonzales</div>
-          <div class="description">Product Owner</div>
-        </div>
-        <div class="more_box">
-          <div class="more_btn">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-          <div class="more_hidden_box">
-
-          </div>
-        </div>
-      </div>
-      <div class="tasks_info_box">
-        <div class="completed_tasks" onclick="quantity();">
-          <div class="num">372</div>
-          <div class="text">Completed Tasks</div>
-        </div>
-        <div class="open_tasks">
-          <div class="num">2</div>
-          <div class="text">Open Tasks</div>
-        </div>
-      </div>
-      <div class="menu">
-        <span class="title">Menu</span>
-        <ul>
-          <li class="menu_item"><a href="#">Home</a></li>
-          <li class="menu_item"><a href="#">My Tasks</a></li>
-          <li class="menu_item"><a href="#">Notifications <span class="counter">3</span></a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
+<template lang="pug">
+.sidebar
+ .box
+  .sidebar_top
+   .logo_box
+    img(src="@/assets/logo.svg" alt="logo")
+   .name PROJECTUS
+   .search_box
+    .search_btn
+  .profile_box
+   .avatar
+    img(src="@/assets/ava.png" alt="ava")
+   .text
+    .name Jean Gonzales
+    .description Product Owner
+   .more_box
+    .more_btn
+     span
+     span
+     span
+    .more_hidden_box
+  .tasks_info_box
+   .completed_tasks
+    .num(@click="quantity") {{ completedTasks }}
+    .text Completed Tasks
+   .open_tasks
+    .num {{ this.openTasks }}
+    .text Open Tasks
+  .menu
+   .title Menu
+   ul
+    li.menu_item
+     a(href="#") Home
+    li.menu_item
+     a(href="#") My Tasks
+    li.menu_item
+     a(href="#") Notifications
+      span.counter 3
 </template>
 
 <script lang="ts">
-export default {
-  data: function () {
+import { defineComponent } from 'vue'
+export default defineComponent({
+  data () {
     return {
-      isActive: false
+      openTasks: 2,
+      completedTasks: 372,
+      confirmQuestion: 'Are you sure you want to change the number of tasks?'
+    }
+  },
+  methods: {
+    quantity () {
+      const confirmQuestion = confirm(this.confirmQuestion)
+      if (confirmQuestion === true && this.openTasks > 0) {
+        this.openTasks--
+        this.completedTasks++
+      } else if (confirmQuestion === false && this.openTasks > 0) {
+      } else {
+        alert('Аll tasks are closed, keep it up!')
+      }
     }
   }
-}
+})
+
 </script>
 
 <style scoped lang="scss">

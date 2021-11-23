@@ -1,17 +1,13 @@
-<template>
-  <table>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Deadlines</th>
-    </tr>
-    <tr v-bind:key="task" v-for="task in tasks">
-      <td class="name">{{ task.title }}</td>
-      <td class="description">{{ task.description }}</td>
-      <td class="time">{{ task.deadlines }}</td>
-    </tr>
-
-  </table>
+<template lang="pug">
+table
+ tr
+  th Name
+  th Description
+  th Deadlines
+ tr(v-bind:key="task" v-for="task in tasks")
+  td.name {{ task.title }}
+  td.description {{ task.description }}
+  td.time {{ task.deadlines }}
 </template>
 
 <script lang="ts">

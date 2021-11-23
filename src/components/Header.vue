@@ -1,61 +1,41 @@
-<template>
-  <header id="header">
-    <div class="header_main">
-      <div class="title_box">
-        <div class="mobile_menu_btn" v-bind:class="{ active: isActive }" v-on:click="isActive = !isActive">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-        <div class="logo">
-          <img src="../assets/logo.png" alt="logo">
-        </div>
-        <div class="name">Website Redesign</div>
-        <div class="action_box">
-          <div class="more_btn">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-          <div class="more_hidden_box">
-
-          </div>
-        </div>
-      </div>
-      <div class="header_actions">
-        <ul>
-          <li>
-            <a href="#">
-              <img src="../assets/ava.png" alt="ava">
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <img src="../assets/ava.png" alt="ava">
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <img src="../assets/ava.png" alt="ava">
-            </a>
-          </li>
-        </ul>
-        <div class="btn_box">
-          <a href="#" class="btn_grey">Share</a>
-          <a href="#" class="btn_yellow chat">Chat</a>
-        </div>
-      </div>
-    </div>
-    <div class="tab_links">
-      <ul id="nav">
-        <router-link to="/tasks">Tasks</router-link>
-        <router-link to="/kanban">Kanban</router-link>
-        <router-link to="/">Activity</router-link>
-        <router-link to="/calendar">Calendar</router-link>
-        <router-link to="/files">Files</router-link>
-      </ul>
-    </div>
-  </header>
+<template lang="pug">
+header(:id="header")
+ .header_main
+  .title_box
+   .mobile_menu_btn(v-bind:class="{ active: isActive }" v-on:click="isActive = !isActive")
+    span
+    span
+    span
+   .logo
+    img(src="@/assets/logo.png" alt="logo")
+   .name Website Redesign
+   .action_box
+    .more_btn
+      span
+      span
+      span
+    .more_hidden_box
+  .header_actions
+    ul
+     li
+      a(href="#")
+       img(src="@/assets/ava.png" alt="ava")
+     li
+      a(href="#")
+       img(src="@/assets/ava.png" alt="ava")
+     li
+      a(href="#")
+       img(src="@/assets/ava.png" alt="ava")
+    .btn_box
+     a.btn_grey(href="#") Share
+     a.btn_yellow.chat(href="#") Chat
+ .tab_links
+  ul(:id="nav")
+   router-link(to="/tasks") Tasks
+   router-link(to="/kanban") Kanban
+   router-link(to="/") Activity
+   router-link(to="/calendar") Calendar
+   router-link(to="/files") Files
 </template>
 
 <script lang="ts">
