@@ -76,6 +76,11 @@ h1, .h1 {
   margin-bottom: 30px;
 }
 
+h2, .h2 {
+  font: 400 26px/36px $main-font;
+  margin-bottom: 30px;
+}
+
 .mobile_menu_btn {
   display: none;
   @media screen and (max-width: $tablets-big) {
@@ -168,12 +173,15 @@ h1, .h1 {
 
 .tab_pane {
   display: none;
-  width: 730px;
+  width: 930px;
   max-width: 100%;
   background: $white;
   border-radius: 8px;
   margin: 30px auto;
   padding: 35px 30px;
+  @media screen and (max-width: $desktop) {
+    width: 730px;
+  }
   @media screen and (max-width: $tablets) {
     padding: 30px 15px;
   }
@@ -266,6 +274,7 @@ h1, .h1 {
     padding-right: 5px;
     @media screen and (max-width: $tablets) {
       order: 3;
+      width: 100%;
     }
 
     p {
@@ -301,6 +310,14 @@ h1, .h1 {
     }
   }
 
+  .name {
+    min-width: 200px;
+    max-width: 100%;
+    padding-right: 5px;
+  }
+}
+
+.activity_box {
   .time {
     opacity: 0.7;
     font-size: 14px;
@@ -310,12 +327,6 @@ h1, .h1 {
     @media screen and (max-width: $tablets) {
       order: 2;
     }
-  }
-
-  .name {
-    min-width: 200px;
-    max-width: 100%;
-    padding-right: 5px;
   }
 }
 
@@ -329,6 +340,54 @@ table {
     padding-right: 15px;
     @media screen and (max-width: $tablets) {
       display: none;
+    }
+  }
+}
+
+.tasks_form {
+  margin-bottom: 35px;
+  input {
+    margin-right: 25px;
+    @media screen and (max-width: $tablets) {
+      width: 100%;
+      margin: 0 0 25px 0;
+    }
+  }
+}
+
+.tasks_table {
+  .close {
+    color: red;
+    cursor: pointer;
+    margin: 0 50px;
+  }
+}
+
+form {
+  width: 100%;
+
+  input {
+    border: none;
+    background: $yellow-light;
+    padding: 11px 25px;
+    border-radius: 5px;
+    font: 400 16px/20px "Helvetica", sans-serif;
+  }
+
+  .btn_submit {
+    background: $main-color;
+    border: 1px solid $main-color;
+    color: $white;
+    padding: 10px 25px;
+    border-radius: 5px;
+    font: 400 16px/20px "Helvetica", sans-serif;
+    transition: 0.3s;
+    &:hover {
+      background: $white;
+      color: $main-color;
+    }
+    @media screen and (max-width: $tablets) {
+      width: 100%;
     }
   }
 }
