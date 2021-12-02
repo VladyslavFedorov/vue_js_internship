@@ -1,13 +1,13 @@
 <template lang="pug">
 table
- tr
-  th Name
-  th Description
-  th Deadlines
- tr(v-bind:key="task" v-for="task in tasks")
-  td.name {{ task.title }}
-  td.description {{ task.description }}
-  td.time {{ task.deadlines }}
+  tr
+    th Name
+    th Description
+    th Deadlines
+  tr(v-bind:key="task" v-for="task in tasks")
+    td.name {{ task.title }}
+    td.description {{ task.description }}
+    td.time {{ task.deadlines }}
 </template>
 
 <script lang="ts">
@@ -40,8 +40,3 @@ export default defineComponent({
   }
 })
 </script>
-
-<style scoped lang="scss">
-@import '../scss/base/vartiables.scss';
-
-</style>

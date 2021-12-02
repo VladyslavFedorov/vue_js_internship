@@ -1,31 +1,38 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
-import Activity from '../views/Activity.vue'
+import Home from '@/views/Home.vue'
 
 const routes: Array<RouteRecordRaw> = [
   {
-    path: '/tasks',
-    name: 'Tasks',
-    component: () => import('../views/Tasks.vue')
-  },
-  {
-    path: '/kanban',
-    name: 'Kanban',
-    component: () => import('../views/Kanban.vue')
-  },
-  {
     path: '/',
-    name: 'Activity',
-    component: Activity
+    name: 'Tasks',
+    component: Home,
+    redirect: '/tasks',
+    children: [
+      {
+        path: '/tasks',
+        component: () => import('@/components/Tasks.vue')
+      },
+      {
+        path: '/activity',
+        component: () => import('@/components/Activity.vue')
+      },
+      {
+        path: '/kanban',
+        component: () => import('@/components/Kanban.vue')
+      },
+      {
+        path: '/calendar',
+        component: () => import('@/components/Calendar.vue')
+      },
+      {
+        path: '/files',
+        component: () => import('@/components/Files.vue')
+      }
+    ]
   },
   {
-    path: '/calendar',
-    name: 'Calendar',
-    component: () => import('../views/Calendar.vue')
-  },
-  {
-    path: '/files',
-    name: 'Files',
-    component: () => import('../views/Files.vue')
+    path: '/:pathMatch(.*)*',
+    component: () => import('@/views/404.vue')
   }
 ]
 

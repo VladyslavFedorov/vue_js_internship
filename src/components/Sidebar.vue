@@ -30,9 +30,9 @@
    .title Menu
    ul
     li.menu_item
-     a(href="#") Home
+      router-link(to="/") Home
     li.menu_item
-     a(href="#") My Tasks
+     router-link(to="/tasks") My Tasks
     li.menu_item
      a(href="#") Notifications
       span.counter 3

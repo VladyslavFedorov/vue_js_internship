@@ -33,7 +33,7 @@ header(:id="header")
   ul(:id="nav")
    router-link(to="/tasks") Tasks
    router-link(to="/kanban") Kanban
-   router-link(to="/") Activity
+   router-link(to="/activity") Activity
    router-link(to="/calendar") Calendar
    router-link(to="/files") Files
 </template>

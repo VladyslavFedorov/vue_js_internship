@@ -5,19 +5,18 @@ Sidebar
  .content
   .tab_content
    .tab_pane.active
-    TasksList
+    router-view
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
 import Header from '@/components/Header.vue'
 import Sidebar from '@/components/Sidebar.vue'
-import TasksList from '@/components/TasksList.vue'
 
 export default defineComponent({
-  name: 'Tasks',
+  name: 'Home',
   components: {
-    Sidebar, Header, TasksList
+    Sidebar, Header
   }
 })
 </script>
