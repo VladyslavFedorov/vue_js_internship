@@ -1,20 +1,24 @@
 <template lang="pug">
 h2 Add new Tasks
-form.tasks_form(v-on:submit="addTask")
- input(type='text' required='required' placeholder='Name' v-model="TaskNameValue")
- input(type='text' required='required' placeholder='Description' v-model="TaskDescriptionValue")
+div.errors_box(v-if="errors.length")
+  b Please add:
+  ul
+   li(v-for="error in errors") {{ error }}
+form.tasks_form(v-on:submit.prevent="checkForm")
+ input(type='text' placeholder='Name' v-model="taskNameValue")
+ input(type='text' placeholder='Description' v-model="taskDescriptionValue")
  button.btn_submit Add
 h2 Active Tasks
 table.tasks_table
   tr
     th Name
     th Description
-    th Deadlines
+    th Add Time
     th
-  tr(:key="task" v-for="(task, index) in tasks")
+  tr(:key="task + index" v-for="(task, index) in tasks")
     td.name {{ task.title }}
     td.description {{ task.description }}
-    td.time {{ task.deadlines }}
+    td.time {{ task.addTime }}
     td.close
      span.close_task(@click="deleteTask(index)") X
 </template>
@@ -23,48 +27,55 @@ table.tasks_table
 import { defineComponent } from 'vue'
 
 export default defineComponent({
+  el: '.tasks_form',
   data: function () {
     return {
       tasks: [
         {
-          id: 1,
           title: 'Listing on Product Hunt',
           description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
-          deadlines: '26.11.2021'
+          addTime: '26.11.2021, 11:35:13'
         },
         {
-          id: 2,
           title: 'Listing on Product Hunt',
           description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
-          deadlines: '26.11.2021'
+          addTime: '26.11.2021, 11:32:13'
         },
         {
-          id: 3,
           title: 'Listing on Product Hunt',
           description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
-          deadlines: '26.11.2021'
+          addTime: '26.11.2021, 11:30:13'
         }
       ],
-      TaskNameValue: '',
-      TaskDescriptionValue: '',
-      nextId: 4,
-      utc: new Date().toLocaleDateString()
+      taskNameValue: '',
+      taskDescriptionValue: '',
+      utc: '',
+      errors: [] as string[]
     }
   },
   methods: {
-    deleteTask (index) {
+    deleteTask (index: number) {
       this.tasks.splice(index, 1)
     },
-    addTask (event) {
-      event.preventDefault()
-      this.tasks.unshift({
-        id: this.nextId++,
-        title: this.TaskNameValue,
-        description: this.TaskDescriptionValue,
-        deadlines: this.utc
-      })
-      this.TaskNameValue = ''
-      this.TaskDescriptionValue = ''
+    checkForm: function () {
+      this.errors = []
+      if (this.taskNameValue && this.taskDescriptionValue) {
+        this.utc = new Date().toLocaleString()
+        this.tasks.unshift({
+          title: this.taskNameValue,
+          description: this.taskDescriptionValue,
+          addTime: this.utc
+        })
+        this.taskNameValue = ''
+        this.taskDescriptionValue = ''
+        return true
+      }
+      if (!this.taskNameValue) {
+        this.errors.push('Name')
+      }
+      if (!this.taskDescriptionValue) {
+        this.errors.push('Description')
+      }
     }
   }
 })

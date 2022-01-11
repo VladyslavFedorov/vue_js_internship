@@ -1,5 +1,5 @@
 <template>
-  <router-view></router-view>
+  <router-view/>
 </template>
 
 <script>
@@ -390,5 +390,9 @@ form {
       width: 100%;
     }
   }
+}
+
+.errors_box {
+  margin-bottom: 15px;
 }
 </style>
