@@ -1,5 +1,5 @@
 <template lang="pug">
-header(:id="header")
+header(id="header")
  .header_main
   .title_box
    .mobile_menu_btn(v-bind:class="{ active: isActive }" v-on:click="isActive = !isActive")
@@ -30,7 +30,7 @@ header(:id="header")
      a.btn_grey(href="#") Share
      a.btn_yellow.chat(href="#") Chat
  .tab_links
-  ul(:id="nav")
+  ul(id="nav")
    router-link(to="/tasks") Tasks
    router-link(to="/kanban") Kanban
    router-link(to="/activity") Activity
