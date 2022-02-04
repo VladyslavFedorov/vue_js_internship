@@ -15,7 +15,11 @@ table.tasks_table
     th Description
     th Add Time
     th
-  tr(:key="task + index" v-for="(task, index) in tasks")
+  tr( v-for="(task, i) in tasks"
+    :index="i"
+    :key="`task-${i}`"
+    :ref="el => { if (el) divs[i] = el }"
+    )
     td.name {{ task.title }}
     td.description {{ task.description }}
     td.time {{ task.addTime }}
@@ -24,29 +28,51 @@ table.tasks_table
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, onBeforeUpdate, onMounted, reactive, watchEffect } from 'vue'
+import { taskTypes } from '@/types/task'
 
 export default defineComponent({
   el: '.tasks_form',
+  setup: function () {
+    const tasks = reactive<taskTypes[]>([
+      {
+        title: 'Listing on Product Hunt',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
+        addTime: '26.11.2021, 11:35:13'
+      },
+      {
+        title: 'Listing on Product Hunt',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
+        addTime: '25.11.2021, 11:32:13'
+      },
+      {
+        title: 'Listing on Product Hunt',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
+        addTime: '24.11.2021, 11:30:13'
+      }
+    ])
+    let divs: HTMLElement[] = []
+    const fontScale = (list: HTMLElement[], delay: number, animationClass: string) => {
+      list.forEach((el: HTMLElement, index) => {
+        setTimeout(() => {
+          console.log(el)
+          el.classList.add(animationClass)
+        }, index * delay)
+      })
+    }
+    onMounted(() => {
+      fontScale(divs, 200, 'animation')
+    })
+    onBeforeUpdate(() => {
+      divs = []
+    })
+    return {
+      divs,
+      tasks
+    }
+  },
   data: function () {
     return {
-      tasks: [
-        {
-          title: 'Listing on Product Hunt',
-          description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
-          addTime: '26.11.2021, 11:35:13'
-        },
-        {
-          title: 'Listing on Product Hunt',
-          description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
-          addTime: '26.11.2021, 11:32:13'
-        },
-        {
-          title: 'Listing on Product Hunt',
-          description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
-          addTime: '26.11.2021, 11:30:13'
-        }
-      ],
       taskNameValue: '',
       taskDescriptionValue: '',
       utc: '',
@@ -81,3 +107,17 @@ export default defineComponent({
 })
 
 </script>
+<style lang="scss" itemscope>
+  .animation {
+    animation-name: text_scale;
+    animation-duration: 2s;
+  }
+  @keyframes text_scale {
+    50% {
+      font-size: 105%;
+    }
+    100% {
+      font-size: 100%;
+    }
+  }
+</style>
